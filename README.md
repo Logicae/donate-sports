@@ -8,7 +8,7 @@ Donate Sports is a Rails application for tracking, inventorying, and acquiring s
 
 <h2>License</h2>
 
-License information for Donate Sports can be found <a href="https://github.com/Logicae/donate_sports/blob master/LICENSE"> here </a>. 
+License information for Donate Sports can be found <a href="https://github.com/Logicae/donate_sports/blob/master/LICENSE.txt"> here </a>. 
 
 
 <!--This README would normally document whatever steps are necessary to get the-->
