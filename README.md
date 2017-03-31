@@ -1,24 +1,35 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# donate_sports
 
-Things you may want to cover:
+<h2>About</h2>
 
-* Ruby version
+Donate Sports is a Rails application for tracking, inventorying, and acquiring sports equipment for underprivileged youth. This application uses basic authentication. If you plan to use it in a production environment, it is highly recommended that you strengthen authentication standards (e.g. use Devise).   
 
-* System dependencies
+<h2>License</h2>
 
-* Configuration
+License information for Donate Sports can be found <a href="https://github.com/Logicae/donate_sports/blob master/LICENSE"> here </a>. 
 
-* Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+<!--This README would normally document whatever steps are necessary to get the-->
+<!--application up and running.-->
+<!---->
+<!--Things you may want to cover:-->
+<!---->
+<!--* Ruby version-->
+<!---->
+<!--* System dependencies-->
+<!---->
+<!--* Configuration-->
+<!---->
+<!--* Database creation-->
+<!---->
+<!--* Database initialization-->
+<!---->
+<!--* How to run the test suite-->
+<!---->
+<!--* Services (job queues, cache servers, search engines, etc.)-->
+<!---->
+<!--* Deployment instructions-->
+<!---->
+<!--* ...-->
