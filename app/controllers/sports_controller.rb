@@ -4,5 +4,10 @@ class SportsController < ApplicationController
         @sports = Sport.all 
     end 
     
+    def show
+    end 
+
+    def create
+    end 
     
 end

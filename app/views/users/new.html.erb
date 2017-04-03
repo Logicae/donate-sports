@@ -1,6 +1,10 @@
-<%= form_for @user do |f| %>
-  Email: <%= f.text_field :email %>
-  Password: <%= f.password_field :password %>
-  Password Confirmation: <%= f.password_field :password_confirmation %>
-  <%= f.submit "Submit" %>
-<% end %>
+<div>
+<br>
+    <%= form_for @user do |f| %>
+    <ul>Email: <%= f.text_field :email %></ul>
+    <ul>Password: <%= f.password_field :password %></ul>
+    <ul>Confirm Password: <%= f.password_field :password_confirmation %></ul>
+    <ul><%= f.submit "Submit" %></ul>
+    <% end %>
+</div>
+<!-- put in partial -->
