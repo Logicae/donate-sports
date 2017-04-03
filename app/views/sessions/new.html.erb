@@ -1,8 +1,10 @@
 <div>
 <br>
+<ul><h3>Sign in</h3></ul>
     <%= form_for @user do |f| %>
-    Email: <%= f.text_field :email %>
-    Password: <%= f.password_field :password %>
-    <%= f.submit "Submit" %>
+    <ul>Email: <%= f.text_field :email %></ul>
+    <ul>Password: <%= f.password_field :password %></ul>
+    <ul><%= f.submit "Submit" %></ul>
     <% end %>
 </div>
+<!-- put in partial -->
