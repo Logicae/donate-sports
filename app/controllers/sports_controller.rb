@@ -4,4 +4,5 @@ class SportsController < ApplicationController
         @sports = Sport.all 
     end 
     
+    
 end

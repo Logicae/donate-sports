@@ -1,7 +1,7 @@
     <div>
                 <%= content_tag :div, flash[:alert] if flash[:alert] %>
                 <%= content_tag :div, flash[:notice] if flash[:notice] %>
-                <%= button_to "Sign Up", new_user_path %>
-            <!--    button_to "Sign In", signin_path 
-                button_to "Log Out", logout_path, method: :delete -->
+                <%= link_to "Sign Up", new_user_path %>
+                <%= link_to "Sign In", login_path %>
+                <%= link_to "Log Out", logout_path, method: :delete %>
     </div>
