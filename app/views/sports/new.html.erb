@@ -3,11 +3,12 @@
     <ul><h3>Add a product for donation:</h3></ul>
     <%= form_for @sport do |f| %>
     <ul>Sport: <%= f.text_field :name %></ul>
-    
-    <ul>Item Description: 
-
-
-    <ul><%= f.submit "Submit" %></ul>
+    <ul><%= f.collection_check_boxes :product_ids, Product.all, :id, :name %></ul>
+    <ul>Item Description:</ul>
+    <%= f.fields_for :products, post.products.build do |products_fields| %>
+        <%= categories_fields.text_field :name %>
+    <% end %>
+    <ul><%= f.submit "Submit" %>
     <% end %>
 </div>
 <!-- put in partial -->
