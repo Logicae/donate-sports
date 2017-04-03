@@ -1,3 +1,7 @@
-<% @sports.each do |sport|%>
-<%= sport.name %>
+<% if logged_in? %>
+    <% @sports.each do |sport|%>
+        <ul><%= sport.name %></ul>
+    <% end %>
+<% else %>
+    <ul>Please sign in to see available sports.</ul>
 <% end %>

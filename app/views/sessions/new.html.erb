@@ -2,8 +2,10 @@
 <br>
 <ul><h3>Sign in</h3></ul>
     <%= form_for @user, :url => url_for(:controller => 'sessions', :action => 'create') do |f| %>
-    <ul>Email: <%= f.text_field :email %></ul>
-    <ul>Password: <%= f.password_field :password %></ul>
+    <ul><strong><%= f.label :email %></strong></ul>
+    <ul><%= f.text_field :email %></ul>
+    <ul><strong><%= f.label :password%></strong></ul>
+    <ul><%= f.password_field :password %></ul>
     <ul><%= f.submit "Submit" %></ul>
     <% end %>
 </div>

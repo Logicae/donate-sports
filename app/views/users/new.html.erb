@@ -2,11 +2,15 @@
 <br>
     <ul><h3>Sign up</h3></ul>
     <%= form_for @user do |f| %>
-    <ul>Name: <%= f.text_field :name %></ul>
-    <ul>Email: <%= f.text_field :email %></ul>
-    <ul>Password: <%= f.password_field :password %></ul>
-    <ul>Confirm Password: <%= f.password_field :password_confirmation %></ul>
-    <ul><%= f.submit "Submit" %></ul>
+        <ul><strong><%= f.label :name %></strong></ul>
+        <ul><%= f.text_field :name %></ul>
+        <ul><strong><%= f.label :email %></strong></ul>
+        <ul><%= f.text_field :email %></ul>
+        <ul><strong><%= f.label :password %></strong></ul>
+        <ul><%= f.password_field :password %></ul>
+        <ul><strong><%= f.label :password_confirmation %></strong></ul>
+        <ul><%= f.password_field :password_confirmation %></ul>
+        <ul><%= f.submit "Submit" %></ul>
     <% end %>
 </div>
 <!-- put in partial -->
