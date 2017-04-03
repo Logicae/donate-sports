@@ -2,6 +2,7 @@
 <br>
     <ul><h3>Sign up</h3></ul>
     <%= form_for @user do |f| %>
+    <ul>Name: <%= f.text_field :name %></ul>
     <ul>Email: <%= f.text_field :email %></ul>
     <ul>Password: <%= f.password_field :password %></ul>
     <ul>Confirm Password: <%= f.password_field :password_confirmation %></ul>

@@ -1,10 +1,4 @@
 <br>
-Hello <% @user.name%>! 
+<ul>Hello <strong><%= @user.name %>!</strong></ul> 
 
-Current Items Listed for Donation: 
-
-<%= @user.sports.each do |sport| %>
-    <%= sport.name%>
-    <%= sport.product_name %>
-    <%= sport.product_description %>
-<% end %>
+<ul>Current Items Listed for Donation:</ul>
