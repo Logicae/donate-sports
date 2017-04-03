@@ -1,0 +1,10 @@
+<br>
+Hello <% @user.name%>! 
+
+Current Items Listed for Donation: 
+
+<%= @user.sports.each do |sport| %>
+    <%= sport.name%>
+    <%= sport.product_name %>
+    <%= sport.product_description %>
+<% end %>
