@@ -4,7 +4,7 @@
 
 <h2>About</h2>
 
-Donate Sports is a Rails application for tracking, inventorying, and acquiring sports equipment for underprivileged youth. This application uses basic authentication. If you plan to use it in a production environment, it is highly recommended that you strengthen authentication standards (e.g. use Devise).   
+Donate Sports is a Rails application for donating sports equipment to underprivileged youth. This application uses basic authentication. If you plan to use it in a production environment, it is highly recommended that you strengthen authentication standards (e.g. use Devise).   
 
 <h2>License</h2>
 
