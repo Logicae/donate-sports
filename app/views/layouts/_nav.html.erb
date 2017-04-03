@@ -1,7 +1,9 @@
     <div>
+        <ul>
                 <%= content_tag :div, flash[:alert] if flash[:alert] %>
                 <%= content_tag :div, flash[:notice] if flash[:notice] %>
                 <%= link_to "Sign Up", new_user_path %>
                 <%= link_to "Sign In", login_path %>
                 <%= link_to "Log Out", logout_path, method: :delete %>
+        </ul>
     </div>

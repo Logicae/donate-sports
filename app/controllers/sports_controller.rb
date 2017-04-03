@@ -12,7 +12,12 @@ class SportsController < ApplicationController
     end 
 
     def create
-
+        @sport = Sport.new(sports_params)
+        @sport.save
+        redirect_to user_path(current_user)
+        # else
+        #     redirect_to new_user_path
+        # end
     end 
     
     private 

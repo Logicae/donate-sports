@@ -1,14 +1,15 @@
 <div>
 <br>
-    <ul><h3>Add a product for donation:</h3></ul>
-    <%= form_for @sport do |f| %>
-    <ul>Sport: <%= f.text_field :name %></ul>
-    <ul><%= f.collection_check_boxes :product_ids, Product.all, :id, :name %></ul>
-    <ul>Item Description:</ul>
-    <%= f.fields_for :products, post.products.build do |products_fields| %>
-        <%= categories_fields.text_field :name %>
+<% if current_user %>
+    <ul><h2>Add a product for donation</h2>
+    <%= form_for @sport do |f| %></ul>
+    
+    <ul><strong><%= f.label :name %></strong>
+    (choose from existing or add new sport)</ul>
+    <ul><%= f.collection_select :id, Sport.all, :id, :name %>
+    <%= f.text_field :name %></ul>
+    <ul><%= f.submit "Submit" %></ul>
     <% end %>
-    <ul><%= f.submit "Submit" %>
     <% end %>
 </div>
 <!-- put in partial -->
