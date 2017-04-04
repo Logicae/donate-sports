@@ -12,8 +12,7 @@ class SportsController < ApplicationController
     end 
 
     def create
-        @sport = Sport.new(sports_params)
-        @sport.save
+        @sport = Sport.create(sports_params)
         redirect_to user_path(current_user)
         # else
         #     redirect_to new_user_path
@@ -23,7 +22,7 @@ class SportsController < ApplicationController
     private 
 
     def sports_params 
-        params.require(:sport).permit(:name)
+        params.require(:sport).permit(:name, product_ids:[], products_attributes: [:product_name, :product_description])
     end 
     
 end

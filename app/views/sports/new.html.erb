@@ -1,15 +1,23 @@
 <div>
 <br>
-<% if current_user %>
-    <ul><h2>Add a product for donation</h2>
-    <%= form_for @sport do |f| %></ul>
-    
-    <ul><strong><%= f.label :name %></strong>
-    (choose from existing or add new sport)</ul>
-    <ul><%= f.collection_select :id, Sport.all, :id, :name %>
-    <%= f.text_field :name %></ul>
-    <ul><%= f.submit "Submit" %></ul>
-    <% end %>
+    <% if current_user %>
+        <ul><h2>Add a product for donation</h2>
+
+        <%= form_for @sport do |f| %></ul>
+            <ul><strong><%= f.label :sport %></strong>
+            (choose from existing or add new sport)</ul>
+            <ul><%= f.collection_select :id, Sport.all, :id, :name %>
+            <%= f.text_field :name %></ul>
+
+            <%= f.fields_for :products, @sport.products.build do |products_fields| %>
+                <ul><strong><%= f.label :item_name %></strong></ul>
+                <ul><%= products_fields.text_field :product_name %></ul>
+                <ul><strong><%= f.label :item_description %></strong></ul>
+                <ul><%= products_fields.text_area :product_description %></ul>
+            <% end %>
+
+            <ul><%= f.submit "Submit" %></ul>
+        <% end %>
     <% end %>
 </div>
 <!-- put in partial -->
