@@ -22,7 +22,7 @@ class SportsController < ApplicationController
     private 
 
     def sports_params 
-        params.require(:sport).permit(:name, product_ids:[], products_attributes: [:product_name, :product_description])
+        params.require(:sport).permit(:name, product_ids:[], products_attributes: [:product_name, :product_description, :user_id])
     end 
     
 end

@@ -12,8 +12,10 @@
             <%= f.fields_for :products, @sport.products.build do |products_fields| %>
                 <ul><strong><%= f.label :item_name %></strong></ul>
                 <ul><%= products_fields.text_field :product_name %></ul>
+                <input type="hidden" name="sport[products_attributes][0][user_id]" value="<%= current_user.id %>">
                 <ul><strong><%= f.label :item_description %></strong></ul>
                 <ul><%= products_fields.text_area :product_description %></ul>
+                <input type="hidden" name="sport[products_attributes][0][user_id]" value="<%= current_user.id %>">
             <% end %>
 
             <ul><%= f.submit "Submit" %></ul>
