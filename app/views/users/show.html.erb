@@ -4,4 +4,10 @@
 
 <ul>Current Items Listed for Donation:</ul>
 
+<%= @user.products.each do |product| %>
+    <%= product.sport.name %>
+    <%= product.product_name %>
+    <%= product.product_description %>
+<% end %>
+
 <% end %>
