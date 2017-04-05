@@ -10,4 +10,47 @@
                     <%= link_to "Donate a new item", new_sport_path %>
                 <% end %>                
         </ul>
+
+        <ul>
+            <% if @user.errors.any?  %>
+                <div id="error_explanation">
+                    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+                
+                    <ul>
+                    <% @user.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                    <% end %>
+                    </ul>
+                </div>
+            <% end %>
+        </ul>
+
+        <ul>
+            <% if @sport.errors.any? %>
+                <div id="error_explanation">
+                    <h2><%= pluralize(@sport.errors.count, "error") %> prohibited this sport from being saved:</h2>
+                
+                    <ul>
+                    <% @sport.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                    <% end %>
+                    </ul>
+                </div>
+            <% end %>
+        </ul>
+
+        <ul>
+            <% if @product.errors.any? %>
+                <div id="error_explanation">
+                    <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+                
+                    <ul>
+                    <% @product.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                    <% end %>
+                    </ul>
+                </div>
+            <% end %>
+        </ul>
+        
     </div>
