@@ -2,6 +2,7 @@ class SportsController < ApplicationController
 
     def index 
         @sports = Sport.all 
+        @sort_by_sport = self.sort_by_sport
     end 
     
     def new

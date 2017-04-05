@@ -5,3 +5,11 @@
 <% else %>
     <ul>Please sign in to see available sports.</ul>
 <% end %>
+
+<div>
+  <h3>See sports by listing prevalence</h3>
+  <%= form_tag("/sports", method: "get") do %>
+    <%= select_tag "sport" %>
+    <%= submit_tag "Filter" %>
+  <% end %>
+</div>
