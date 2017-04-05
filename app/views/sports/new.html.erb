@@ -14,17 +14,15 @@
 
             <ul>
                 <select name="sport[name]">
-                    <option value="">Please select</option>
+                    <option value="" selected="selected">Please select</option>
                     <option value="Baseball">Baseball</option>
                     <option value="Basketball">Basketball</option>
-                    <option value="Football" selected="selected">Football</option>
+                    <option value="Football">Football</option>
                     <option value="Golf">Golf</option>
                     <option value="Hockey">Hockey</option>
                     <option value="Soccer">Soccer</option>
                 </select>
             </ul>
-
-    
 
             <%= f.fields_for :products, @sport.products.build do |products_fields| %>
                 <ul><strong><%= f.label :item_name %></strong></ul>
