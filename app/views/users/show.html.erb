@@ -5,11 +5,14 @@
     <ul>Current Items Listed for Donation:</ul>
 
     <% @user.products.each do |product| %>
-    <% binding.pry %>
-        <%= product.sport.name %>
-        <%= product.product_name %>
-        <%= product.product_description %>
-        <% end %>
+    <fieldset>
+        <ul><strong>Sport</ul></strong>
+        <ul><%= product.sport.name %></ul>
+        <ul><strong>Item</ul></strong>
+        <ul><%= product.product_name %></ul>
+        <ul><strong>Description</ul></strong>
+        <ul><%= product.product_description %></ul>
+    </fieldset>
+    <% end %>
 
-    <ul><%= link_to "Donate a new item", new_sport_path %></ul>
 <% end %>
