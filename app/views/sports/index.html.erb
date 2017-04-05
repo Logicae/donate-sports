@@ -2,18 +2,28 @@
 
     <% if logged_in? %>
         <% @sports.each do |sport|%>
+          <fieldset>
+            <ul><strong>Sport</strong></ul>
             <ul><%= sport.name %></ul>
+                <% sport.products.each do |product| %>
+                    <ul><strong>Item</strong></ul>
+                    <ul><%= product.product_name %></ul>
+                    <ul><strong>Item Description</strong></ul>
+                    <ul><%= product.product_description %></ul>
+                     </fieldset>
+                <% end %>
         <% end %>
     <% else %>
         <ul>Please sign in to see additional details.</ul>
     <% end %>
+
+    <ul><strong>- - - - - - - - </strong></ul>
 
     <ul>Want to the number of listings per sport? Choose below.</ul>
     <%= form_tag("/sports", method: "get") do %>
         <ul><%= select_tag "sport", options_from_collection_for_select(Sport.all, "id", "name"), include_blank: false %></ul>
         <ul><%= submit_tag "Filter" %></ul>
     <% end %>
-    
 
     <% @sort_by_sport.each do |sport|%>
         <ul><%= sport[0]%></ul>
