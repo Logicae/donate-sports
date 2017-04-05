@@ -3,10 +3,14 @@
     <% if current_user %>
         <ul><h2>Add a product for donation</h2>
 
-        <%= form_for @sport do |f| %></ul>
+           <%= form_for @sport do |f| %></ul>
             <ul><strong><%= f.label :sport %></strong>
             (choose from existing or add new sport)</ul>
-            <ul><%= f.collection_select :id, Sport.all, :id, :name %>
+            <ul> <select name="sport[name]">
+                <% Sport.all.each do |sport| %>
+                    <option value="<%= sport.name%>"><%= sport.name %></option>
+                <% end %>
+            </select>
             <%= f.text_field :name %></ul>
 
             <%= f.fields_for :products, @sport.products.build do |products_fields| %>

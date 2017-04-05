@@ -6,7 +6,6 @@ class Sport < ApplicationRecord
     def products_attributes=(product_attributes)
         product_attributes.each do |k, product_attribute|
             if product_attribute[:product_name].present? && product_attribute[:product_description].present? 
-                binding.pry
                 product = Product.create(product_attribute)
                 self.products << product
             end
