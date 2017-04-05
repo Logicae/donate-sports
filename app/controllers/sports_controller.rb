@@ -12,12 +12,12 @@ class SportsController < ApplicationController
     end 
 
     def create
-        binding.pry
-        @sport = Sport.create(sports_params)
-        redirect_to user_path(current_user)
-        # else
-        #     redirect_to new_user_path
-        # end
+        @sport = Sport.new(sports_params)
+        if @sport.save
+            redirect_to user_path(current_user)
+        else
+            render :new
+        end
     end 
     
     private 
