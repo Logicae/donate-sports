@@ -13,7 +13,7 @@ class SportsController < ApplicationController
 
     def create
         binding.pry
-        @sport = Sport.new(sports_params)
+        @sport = Sport.create(sports_params)
         redirect_to user_path(current_user)
         # else
         #     redirect_to new_user_path

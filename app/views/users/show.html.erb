@@ -1,13 +1,15 @@
 <br>
 <% if current_user %>
-<ul>Hello <strong><%= @user.name %>!</strong></ul> 
+    <ul>Hello <strong><%= @user.name %>!</strong></ul> 
 
-<ul>Current Items Listed for Donation:</ul>
+    <ul>Current Items Listed for Donation:</ul>
 
-<%= @user.products.each do |product| %>
-    <%= product.sport.name %>
-    <%= product.product_name %>
-    <%= product.product_description %>
-<% end %>
+    <% @user.products.each do |product| %>
+    <% binding.pry %>
+        <%= product.sport.name %>
+        <%= product.product_name %>
+        <%= product.product_description %>
+        <% end %>
 
+    <ul><%= link_to "Donate a new item", new_sport_path %></ul>
 <% end %>
