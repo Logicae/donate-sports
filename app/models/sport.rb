@@ -2,7 +2,7 @@ class Sport < ApplicationRecord
     has_many :products
     has_many :users, through: :products
 
-    # validates :name, presence: true
+    validates :name, presence: true
 
     accepts_nested_attributes_for :products
 
