@@ -1,15 +1,22 @@
-<% if logged_in? %>
-    <% @sports.each do |sport|%>
-        <ul><%= sport.name %></ul>
-    <% end %>
-<% else %>
-    <ul>Please sign in to see available sports.</ul>
-<% end %>
-
 <div>
-  <h3>See sports by listing prevalence</h3>
-  <%= form_tag("/sports", method: "get") do %>
-    <%= select_tag "sport" %>
-    <%= submit_tag "Filter" %>
-  <% end %>
+
+    <% if logged_in? %>
+        <% @sports.each do |sport|%>
+            <ul><%= sport.name %></ul>
+        <% end %>
+    <% else %>
+        <ul>Please sign in to see available sports.</ul>
+    <% end %>
+
+    <ul>Want to the number of listings per sport? Choose below.</ul>
+    <%= form_tag("/sports", method: "get") do %>
+        <ul><%= select_tag "sport", options_from_collection_for_select(Sport.all, "id", "name"), include_blank: false %></ul>
+        <ul><%= submit_tag "Filter" %></ul>
+    <% end %>
+    
+
+    <% @sort_by_sport.each do |sport|%>
+        <ul><%= sport[0]%></ul>
+        <ul><%= sport[1]%></ul>
+    <% end %>
 </div>

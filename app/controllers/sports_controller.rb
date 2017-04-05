@@ -1,8 +1,11 @@
 class SportsController < ApplicationController
 
     def index 
-        @sports = Sport.all 
-        @sort_by_sport = self.sort_by_sport
+        if !params[:sport].blank?
+            @sort_by_sport = Sport.sort_by_sport
+        else 
+            @sports = Sport.all 
+        end 
     end 
     
     def new
