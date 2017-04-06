@@ -10,6 +10,7 @@
                     <%= link_to "Log Out", logout_path, method: :delete %>
                     <%= link_to "Donate", new_sport_path %>
                     <%= link_to "All Items", sports_path %>
+                    <%= link_to "My Items", user_path(current_user) %>
                 <% end %>                
         </ul>
     </div>
