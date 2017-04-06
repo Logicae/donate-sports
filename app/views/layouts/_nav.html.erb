@@ -5,7 +5,6 @@
                 <% if !logged_in? %>
                     <%= link_to "Sign Up", new_user_path %>
                     <%= link_to "Sign In", login_path %>
-                    <%= link_to("login with facebook!", "/auth/facebook") %>
                 <% else %>
                     <%= link_to "Log Out", logout_path, method: :delete %>
                     <%= link_to "Donate", new_sport_path %>
