@@ -1,5 +1,4 @@
 class Sport < ApplicationRecord
-   
     has_many :products
     has_many :users, through: :products
 
@@ -15,7 +14,7 @@ class Sport < ApplicationRecord
     end
     
     def self.sort_by_sport
-        Sport.group(:name).order('count_id DESC').limit(5).count(:id)
+        Sport.group(:name).order('count_id DESC').limit(6).count(:id)
     end 
     
 end

@@ -1,5 +1,17 @@
 <div>
 
+    <%= form_tag("/sports", method: "get") do %>
+        <ul><%= hidden_field_tag "sport", options_from_collection_for_select(Sport.all, "id", "name"), include_blank: false %></ul>
+        <ul><%= submit_tag "See which sport has the most donated items!" %></ul>
+    <% end %>
+
+    <% @sort_by_sport.each do |sport|%>
+            <ul><%= sport[0]%></ul>
+            <ul><%= sport[1]%></ul>
+    <% end %>
+
+ <ul><strong>- - - - - - - - </strong></ul>
+
     <% if logged_in? %>
         <% @sports.each do |sport|%>
           <fieldset>
@@ -17,17 +29,4 @@
         <ul>Please sign in to see additional details.</ul>
     <% end %>
 
-    <ul><strong>- - - - - - - - </strong></ul>
-
-    <ul>See which sport has the most donated item!</ul>
-    <%= form_tag("/sports", method: "get") do %>
-        <ul><%= select_tag "sport", options_from_collection_for_select(Sport.all, "id", "name"), include_blank: false %></ul>
-        <ul><%= submit_tag "Filter" %></ul>
-    <% end %>
-
-    <% @sort_by_sport.each do |sport|%>
-
-        <ul><%= sport[0]%></ul>
-        <ul><%= sport[1]%></ul>
-    <% end %>
 </div>
