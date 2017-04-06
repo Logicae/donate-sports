@@ -19,13 +19,14 @@
 
     <ul><strong>- - - - - - - - </strong></ul>
 
-    <ul>Want to the number of listings per sport? Choose below.</ul>
+    <ul>See which sport has the most donated item!</ul>
     <%= form_tag("/sports", method: "get") do %>
         <ul><%= select_tag "sport", options_from_collection_for_select(Sport.all, "id", "name"), include_blank: false %></ul>
         <ul><%= submit_tag "Filter" %></ul>
     <% end %>
 
     <% @sort_by_sport.each do |sport|%>
+
         <ul><%= sport[0]%></ul>
         <ul><%= sport[1]%></ul>
     <% end %>
