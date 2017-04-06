@@ -1,30 +1,11 @@
 <ul>
-    <% if @user.errors.any?  %>
-        <div id="error_explanation">
-            <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-        
-            <ul>
-            <% @user.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-            <% end %>
-            </ul>
-        </div>
-    <% end %>
+    
 </ul>
 
 <div>
 <br>
     <ul><h3>Sign up</h3></ul>
-    <%= form_for @user do |f| %>
-        <ul><strong><%= f.label :name %></strong></ul>
-        <ul><%= f.text_field :name %></ul>
-        <ul><strong><%= f.label :email %></strong></ul>
-        <ul><%= f.text_field :email %></ul>
-        <ul><strong><%= f.label :password %></strong></ul>
-        <ul><%= f.password_field :password %></ul>
-        <ul><strong><%= f.label :password_confirmation %></strong></ul>
-        <ul><%= f.password_field :password_confirmation %></ul>
-        <ul><%= f.submit "Submit" %></ul>
-    <% end %>
+    
+    <%= render 'signup' %>
+
 </div>
-<!-- put in partial -->

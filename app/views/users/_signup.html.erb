@@ -1,0 +1,11 @@
+<%= form_for @user do |f| %>
+        <ul><strong><%= f.label :name %></strong></ul>
+        <ul><%= f.text_field :name %></ul>
+        <ul><strong><%= f.label :email %></strong></ul>
+        <ul><%= f.text_field :email %></ul>
+        <ul><strong><%= f.label :password %></strong></ul>
+        <ul><%= f.password_field :password %></ul>
+        <ul><strong><%= f.label :password_confirmation %></strong></ul>
+        <ul><%= f.password_field :password_confirmation %></ul>
+        <ul><%= f.submit "Submit" %></ul>
+<% end %>

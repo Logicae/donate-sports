@@ -1,0 +1,10 @@
+<% @user.products.each do |product| %>
+    <fieldset>
+        <ul><strong>Sport</ul></strong>
+        <ul><%= product.sport.name %></ul>
+        <ul><strong>Item</ul></strong>
+        <ul><%= product.product_name %></ul>
+        <ul><strong>Description</ul></strong>
+        <ul><%= product.product_description %></ul>
+    </fieldset>
+<% end %>
