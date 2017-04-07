@@ -6,13 +6,6 @@ skip_before_filter :verify_authenticity_token, :only => [:create]
     end
 
     def create
-        # user = User.find_or_create_by(:provider => auth_hash[:provider], :uid => auth_hash[:uid]) do |user|
-        #     user.name = auth_hash[:info][:name]
-        #     user.save
-        #     session[:user_id] = user.id
-        # end
-        # redirect_to sports_path
-
          if auth_hash = request.env["omniauth.auth"] 
             @user = User.create_with_omniauth(auth_hash)
             session[:user_id] = @user.id    

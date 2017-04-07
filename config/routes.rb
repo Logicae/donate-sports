@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   match 'auth/github/callback', to: 'sessions#create', :via => [:get, :post]
 
   resources :sports, only: [:show] do
-    # nested resource for products
     resources :products, only: [:new, :index]
   end
 
