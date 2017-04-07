@@ -1,11 +1,16 @@
 <ul>
-    
+    <%= render 'errors' %>
 </ul>
 
 <div>
 <br>
     <ul><h3>Sign up</h3></ul>
     
-    <%= render 'signup' %>
+    <% if !current_user %>
+        <%= render 'signup' %>
 
+    <ul>or</ul> 
+
+    <ul><%= link_to "Sign up with GitHub", :github_auth %></ul>
+    <% end %>
 </div>

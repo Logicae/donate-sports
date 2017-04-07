@@ -9,7 +9,6 @@ skip_before_filter :verify_authenticity_token, :only => [:create]
          if auth_hash = request.env["omniauth.auth"] 
             @user = User.create_with_omniauth(auth_hash)
             session[:user_id] = @user.id    
-            binding.pry
             redirect_to user_path(@user)
         elsif
             @user = User.find_by(email: params[:user][:email])

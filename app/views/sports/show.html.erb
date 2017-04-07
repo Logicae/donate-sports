@@ -1,12 +1,9 @@
 <br>
-<ul><h2><%= @sport.name %></h2></ul>
-
-<fieldset>
     <% if logged_in? %>
 
-        <%= render 'sport' %>
+        <ul><h2>See All <%= link_to @sport.name, sport_products_path(@sport) %> Listings</h2></ul>
+        <ul><h2><%= link_to "Donate", new_sport_product_path(@sport) %> New <%= @sport.name %> Item </h2></ul>
 
     <% else %>
             <ul>Please sign in to see additional details.</ul>
     <% end %>
-</fieldset>

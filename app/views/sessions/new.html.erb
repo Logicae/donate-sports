@@ -1,7 +1,16 @@
 <div>
 <br>
+
+<% if !current_user %>
 <ul><h3>Sign in</h3></ul>
 
- <%= render 'form' %>
+    <%= render 'form' %>
 
+    <ul>or</ul> 
+
+     <ul><%= link_to "Log in with GitHub", :github_auth %></ul>
+     <% else %>
+     <ul>You are already logged in</ul>
+<% end %>
 </div>
+
