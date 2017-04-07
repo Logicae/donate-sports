@@ -1,15 +1,14 @@
 class ProductsController < ApplicationController
 
  def index
-    if params[:user_id]
-      @users = User.find(params[:user_id]).products
+    if params[:sport_id]
+      @sports = Sport.find(params[:sport_id]).products
     else
-      @users = User.all
+      @sports = Sport.all
     end
   end
  
   def new
-    @sport = Sport.new
     @product = Product.new(user_id: params[:user_id])
   end
 
@@ -25,7 +24,7 @@ class ProductsController < ApplicationController
   private
  
     def products_params
-        params.require(:product).permit(:product_name, :product_description, :user_id, sport_ids:[], sports_attributes: [:name])
+        params.require(:product).permit(:product_name, :products_description)
     end
 
 end
