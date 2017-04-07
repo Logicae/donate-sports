@@ -17,7 +17,7 @@ skip_before_filter :verify_authenticity_token, :only => [:create]
                 redirect_to user_path(@user)
             end  
         else 
-            redirect_to sports_path
+            redirect_to login_path
         end
     end
 
