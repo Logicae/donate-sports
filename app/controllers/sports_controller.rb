@@ -18,8 +18,10 @@ class SportsController < ApplicationController
     end 
 
     def create
-        binding.pry
-        @sport = Sport.new(sports_params)
+        @sport = Sport.find_or_create_by(name: sports_params[:name])
+        @product = Product.new(product_name: sports_params[:products_attributes]["0"][:product_name], product_description: sports_params[:products_attributes]["0"][:product_description])
+        @product.user_id = User.find_by(id: sports_params[:products_attributes]["0"][:user_id])
+        @sport.products << @product
         if @sport.save
             redirect_to user_path(current_user)
         else
@@ -32,5 +34,5 @@ class SportsController < ApplicationController
     def sports_params 
         params.require(:sport).permit(:name, product_ids:[], products_attributes: [:product_name, :product_description, :user_id])
     end 
-    
+
 end
