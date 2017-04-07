@@ -9,6 +9,7 @@ class ProductsController < ApplicationController
   end
  
   def new
+    @sport = Sport.new
     @product = Product.new(user_id: params[:user_id])
   end
 
