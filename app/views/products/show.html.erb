@@ -1,0 +1,13 @@
+<% if logged_in? %>
+            <fieldset>
+            <% binding.pry %>
+            <ul><strong>Sport</strong></ul>
+            <ul><%= @user.sport.name %></ul>
+            <ul><strong>Item</strong></ul>
+            <ul><%= @user.product_name %></ul>
+            <ul><strong>Item Description</strong></ul>
+            <ul><%= @user.product_description %></ul>
+            </fieldset>
+    <% else %>
+        <ul>Please sign in to see additional details.</ul>
+<% end %>

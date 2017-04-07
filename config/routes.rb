@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
 resources :users, only: [:show] do
     # nested resource for products
-    resources :products, only: [:show]
+    resources :products, only: [:new, :index]
   end
 
   get '/login', to: 'sessions#new'
