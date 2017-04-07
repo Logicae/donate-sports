@@ -13,10 +13,12 @@ class SportsController < ApplicationController
         @sport = Sport.new 
     end 
     
-    def show
+    def show 
+        @sport = Sport.find_by(id: params[:id])
     end 
 
     def create
+        binding.pry
         @sport = Sport.new(sports_params)
         if @sport.save
             redirect_to user_path(current_user)

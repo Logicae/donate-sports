@@ -4,7 +4,13 @@
 
  <ul><strong>- - - - - - - - </strong></ul>
 
- <ul><strong>Item List</strong></ul>
-   <%= render 'item_list' %>
+  <% if logged_in? %>
 
+  <ul><strong>Item List</strong></ul>
+
+    <%= render 'item_list' %>
+
+  <% else %>
+          <ul>Please sign in to see additional details.</ul>
+  <% end %>
 </div>

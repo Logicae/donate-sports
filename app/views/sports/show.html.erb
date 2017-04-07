@@ -1,0 +1,9 @@
+<fieldset>
+    <% if logged_in? %>
+
+        <%= render 'sport' %>
+
+    <% else %>
+            <ul>Please sign in to see additional details.</ul>
+    <% end %>
+</fieldset>

@@ -1,4 +1,3 @@
-<% if logged_in? %>
         <% @sports.each do |sport|%>
           <fieldset>
             <ul><strong>Sport</strong></ul>
@@ -15,6 +14,3 @@
                      </fieldset>
                 <% end %>
         <% end %>
-    <% else %>
-        <ul>Please sign in to see additional details.</ul>
-<% end %>

@@ -1,14 +1,10 @@
-<%= form_for(@product) do |f| %>
+<!-- <%= form_for(@post) do |f| %>
+    <label>Item:</label><br>
     
-    <%= f.label :item %>
-    <%= f.hidden_field :user_id %>
+    <%= f.hidden_field :sport_id %>
+    
     <%= f.text_field :product_name %><br>
-    <%= f.label :item_description %>
-    <%= f.text_field :product_description %><br>
-
-    <%= f.fields_for :sport do |sport| %>
-        <ul><strong><%= sport.label :sport %></strong></ul>
-        <ul><%= sport.text_field :name %></ul>
-    <% end %>
+    <label>Item Description</label><br>
+    <%= f.text_area :product_description %><br>
     <%= f.submit %>
-<% end %>
+<% end %> --> 
