@@ -9,22 +9,23 @@ class ProductsController < ApplicationController
   end
  
   def new
-    @product = Product.new(user_id: params[:user_id])
+    @product = Product.new(sport_id: params[:sport_id])
   end
 
-#   def create 
-#      @product = Product.new(products_params)
-#         if @product.save
-#             redirect_to user_path(current_user)
-#         else
-#             render :new
-#         end
-#   end 
+  def create 
+     @product = Product.new(products_params)
+     @product.user_id = current_user.id
+        if @product.save
+            redirect_to user_path(current_user)
+        else
+            render :new
+        end
+  end 
 
-#   private
+   private
  
-#     def products_params
-#         params.require(:product).permit(:product_name, :products_description)
-#     end
+    def products_params
+        params.require(:product).permit(:product_name, :product_description, :sport_id)
+    end
 
 end

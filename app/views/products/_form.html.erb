@@ -1,10 +1,8 @@
-<!-- <%= form_for(@post) do |f| %>
+<%= form_for(@product) do |f| %>
     <label>Item:</label><br>
-    
-    <%= f.hidden_field :sport_id %>
-    
     <%= f.text_field :product_name %><br>
     <label>Item Description</label><br>
     <%= f.text_area :product_description %><br>
+    <%= f.hidden_field :sport_id %>
     <%= f.submit %>
-<% end %> --> 
+<% end %>
