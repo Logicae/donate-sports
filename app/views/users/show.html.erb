@@ -3,9 +3,9 @@
     <%= render 'errors' %>
 
 <% if current_user %>
-    <ul>Hello <strong><%= @user.name %>!</strong></ul> 
+    <ul><h3>Hello <%= @user.name %>!</h3></ul> 
 
-    <ul>Current Items Listed for Donation:</ul>
+    <ul><h3>Here are your current Items Listed for donation. Thank you for your support!</h3></ul>
 
     <%= render 'products' %>
 

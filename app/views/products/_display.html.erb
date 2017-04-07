@@ -1,8 +1,7 @@
-<ul><h2>Your donated items</h2></ul>
-        <% @sports.each do |product|%>
+<br>
+<% @sports.each do |product|%>
+            <ul><h2><%= product.sport.name %></h2></ul>
             <fieldset>
-            <ul><strong>Sport</strong></ul>
-            <ul><%= product.sport.name %></ul>
             <ul><strong>Item</strong></ul>
             <ul><%= product.product_name %></ul>
             <ul><strong>Item Description</strong></ul>
