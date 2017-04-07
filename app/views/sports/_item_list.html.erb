@@ -1,7 +1,6 @@
         <% @sports.each do |sport|%>
-          <fieldset>
-            <ul><strong>Sport</strong></ul>
-            <ul><%= sport.name %></ul>
+            <ul><h2><%= link_to sport.name, sport_path(sport) %></h2></ul>
+            <fieldset>
                 <% sport.products.each do |product| %>
                     <ul><strong>Item</strong></ul>
                     <ul><%= product.product_name %></ul>
