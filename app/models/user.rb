@@ -17,5 +17,4 @@ class User < ApplicationRecord
         @user
     end
 
-#delete email
 end

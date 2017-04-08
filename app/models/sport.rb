@@ -14,7 +14,10 @@ class Sport < ApplicationRecord
     end
     
     def self.sort_by_sport
-        Sport.group(:name).order('count_id DESC').limit(6).count(:id)
+        hash = Product.group(:sport_id).order('count_id DESC').limit(6).count(:id)
+        most_prevalent_key = hash.key(hash.values.max)
+        most_prevalent = Sport.find_by(id: most_prevalent_key)
+        most_prevalent.name
     end 
     
 end

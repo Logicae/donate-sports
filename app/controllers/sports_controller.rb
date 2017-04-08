@@ -5,7 +5,7 @@ class SportsController < ApplicationController
         if !params[:sport].blank?
             @sort_by_sport = Sport.sort_by_sport
         else 
-            @sort_by_sport = Sport.all
+            @sports = Sport.all
         end 
     end 
     
