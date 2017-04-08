@@ -7,7 +7,7 @@ Specs:
 - [x] Include at least one has_many through relationship (x has_many y through z e.g. Recipe has_many Items through Ingredients) - Product is a join table for User and Sport
 - [x] The "through" part of the has_many through includes at least one user submittable attribute (attribute_name e.g. ingredients.quantity) - See Product
 - [x] Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item) - See class level validations
-- [x] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes) - See self.create_with_omniauth(auth) in User class
+- [x] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes) - See self.sort_by_sport in Sport
 - [x] Include a nested form writing to an associated model using a custom attribute writer (form URL, model name e.g. /recipe/new, Item) - See Sport class for writer and Sports _form partial for nested form
 - [x] Include signup (how e.g. Devise) - bcrypt and sessions
 - [x] Include login (how e.g. Devise) - bcrypt and sessions
