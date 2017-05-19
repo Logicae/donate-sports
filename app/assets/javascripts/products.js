@@ -1,16 +1,8 @@
-$(document).ready(function() {
+$(function() {
   attachListeners();
 })
 
 function attachListeners() {
-  $("#products").click(function() {
+  $("#products").on('click', function() {
       alert("hello");
   })
-}
-//      $("#message").text(hello)})
-
-
-//function hello() {
-//    var hello = "hello"
-//    $("#message").text(hello);
-//}
