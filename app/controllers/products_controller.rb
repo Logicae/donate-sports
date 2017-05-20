@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
     else
       @sports = Sport.all
     end
+    render json: @sports
   end
  
   def new

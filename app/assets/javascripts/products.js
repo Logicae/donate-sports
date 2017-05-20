@@ -4,12 +4,10 @@ $(function() {
 
 function attachListeners() {
   $("#products").on('click', function(e) {
-   getUser();
+    var path = window.location.pathname.split( '/' );
+    var userId = path[2];
+    // getUser();
   })
 }
 
-function getUser() {
-    var path = window.location.pathname.split( '/' );
-    var id = path[2];
-    alert(id)
-}
+
