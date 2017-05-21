@@ -3,13 +3,13 @@ class ProductsController < ApplicationController
  def index
     if params[:sport_id]
       @sports = Sport.find(params[:sport_id]).products
-    else
-      @sports = Sport.all
+    # else
+    #   @sports = Sport.all
     end
-    @products = Product.all 
+    # @products = Product.all 
       respond_to do |format|
           format.html { render :index}
-          format.json { render json: @products }
+          format.json { render json: @sports }
       end
   end
  
