@@ -1,10 +1,11 @@
 <br>
-<% @sports.each do |product|%>
-            <ul><h2><%= product.sport.name %></h2></ul>
-            <fieldset>
-            <ul><strong>Item</strong></ul>
-            <ul><%= product.product_name %></ul>
-            <ul><strong>Item Description</strong></ul>
-            <ul><%= product.product_description %></ul>
-            </fieldset>
-<% end %>
+    <% @sports.each do |product|%>
+                <ul><h2><%= product.sport.name %></h2></ul>
+                <fieldset>
+                <ul><strong>Item</strong></ul>
+                <ul><%= product.product_name %></ul>
+                <ul><strong>Item Description</strong></ul>
+                <ul><%= product.product_description %></ul>
+                </fieldset>
+    <% end %>
+

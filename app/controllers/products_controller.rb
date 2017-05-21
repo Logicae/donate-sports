@@ -6,7 +6,11 @@ class ProductsController < ApplicationController
     else
       @sports = Sport.all
     end
-    render json: @sports
+    @products = Product.all 
+      respond_to do |format|
+          format.html { render :index}
+          format.json { render json: @products }
+      end
   end
  
   def new
