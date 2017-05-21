@@ -7,6 +7,10 @@ class SportsController < ApplicationController
         else 
             @sports = Sport.all
         end 
+        #   respond_to do |format|
+        #     format.html { render :show }
+        #     format.json { render json: @sports }
+        # end
     end 
     
     def new
