@@ -5,18 +5,18 @@ $(function() {
 function attachListeners() {
   $("#products").on('click', function(e) {
     var path = window.location.pathname.split( '/' );
-    var userId = path[2];
-    getUser(userId);
+    var sportId = path[2];
+    getSport(sportId);
   })
 }
 
-function getUser(userId) {
+function getSport(sportId) {
   $.ajax({
     type: "GET",
-    url: "/users/" + userId,
+    url: "/sports/" + sportId,
     dataType: "json",
     success: function(data){
-        alert(data.email)
+        alert(data);
     }        
   });
 }
