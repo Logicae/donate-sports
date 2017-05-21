@@ -13,11 +13,19 @@ function attachListeners() {
 function getSport(sportId) {
   $.ajax({
     type: "GET",
-    url: "/sports/" + sportId,
+    url: "/sports/" + sportId +"/products",
     dataType: "json",
     success: function(data){
-        alert(data);
+        productInfo(data)
     }        
   });
+}
+
+function productInfo(data) {
+  var productsArray = " "
+  $(data).each(function (index, value) {
+    productsArray += `<br><strong> ${index + 1}. </strong>` + value.product_name + " - " + value.product_description + `<br>`
+  $("#product").html(productsArray)
+  })
 }
 
