@@ -1,5 +1,5 @@
-$(function() {
-  attachListeners();
+$(document).on('turbolinks:load', function() {
+  attachListeners()
 })
 
 function attachListeners() {
@@ -7,6 +7,7 @@ function attachListeners() {
     var path = window.location.pathname.split( '/' );
     var sportId = path[2];
     getSport(sportId);
+    e.preventDefault()
   })
 }
 
