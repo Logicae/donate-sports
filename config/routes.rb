@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   match 'auth/github/callback', to: 'sessions#create', :via => [:get, :post]
 
   resources :sports, only: [:show] do
-    resources :products, only: [:new, :index]
+    resources :products, only: [:new, :index, :show]
   end
 
   get '/login', to: 'sessions#new'
