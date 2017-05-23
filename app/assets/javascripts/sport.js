@@ -43,5 +43,5 @@ function getDetails(id) {
       success: function(data) {
         $("#product-" + id).html(data.product_description)
     }        
-  });
-
+  })
+}
