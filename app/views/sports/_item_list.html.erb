@@ -5,8 +5,8 @@
             <ul><strong>Item</strong></ul>
             <ul><%= product.product_name %></ul>
             <ul><strong>Item Description</strong></ul>
-                <div id="product-<%= product.id %>"><%= truncate(product.product_description) %></div>
-                <button class="js-more" id="<%= product.id %>">More Info</button>
+            <ul><div id="product-<%= product.id %>"><%= truncate(product.product_description, length: 0) %></div></ul>
+            <ul><button class="js-more" id="<%= product.id %>">More Info</button></ul>
            <!-- <ul><%= product.product_description %></ul>
             <ul><strong>Contact Info</strong></ul>
             <ul><%= product.user.name %></ul>
