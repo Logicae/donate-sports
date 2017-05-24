@@ -61,17 +61,24 @@ function getNext(id) {
                 $(".sportName").text(data.name);
                 $(".js-next").attr(data.id);
                 getProducts(data.id);
-        }
+          }
     });
-}
 
-function getProducts(id) {
-        $.ajax({
+       $.ajax({
             type: "GET",
             url: "/sports/" + id + "/products",
             dataType: "json",
             success: function(data) {
-                $(".productName").html(data.name);
+              getProducts(data);
         }
     });
+}
+
+function getProducts(data) {
+  var productArray = " "
+  $(data).each(function(index, product) {
+    debugger
+    productArray += `<br><strong> ${index + 1}. </strong>` + product.product_name + " - " + product.product_description + `<br>`
+    $(".productName").html(productArray);
+  });
 }
