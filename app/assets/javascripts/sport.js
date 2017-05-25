@@ -59,8 +59,8 @@ function getNext(id) {
             dataType: "json",
             success: function(data) {
                 $(".sportName").text(data.name);
-                $(".js-next").attr(data.id);
-                getProducts(data.id);
+                // getProducts(data.id);
+                $(".js-next").attr("id", data.id);
           }
     });
 
@@ -77,7 +77,6 @@ function getNext(id) {
 function getProducts(data) {
   var productArray = " "
   $(data).each(function(index, product) {
-    debugger
     productArray += `<br><strong> ${index + 1}. </strong>` + product.product_name + " - " + product.product_description + `<br>`
     $(".productName").html(productArray);
   });
