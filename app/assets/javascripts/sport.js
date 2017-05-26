@@ -30,11 +30,11 @@ function attachListeners() {
  
         posting.done(function(data) {
           var post = data;
-          var name = post["product_name"]
-          var description = post["product_name"]
-          new Post(name, description)
-          // $("#created-name").text(post["product_name"]);
-          // $("#created-description").text(post["product_description"]);
+          // var name = post["product_name"]
+          // var description = post["product_name"]
+          // new Post(name, description)
+          $("#created-name").text(post["product_name"]);
+          $("#created-description").text(post["product_description"]);
       });
     });
 }
@@ -98,13 +98,15 @@ function getProducts(data) {
   });
 }
 
-class Product {
-  constructor(description) {
-    this.product_description = description;
-    this.describe()
-  }
+// class Post {
+//   constructor(name, description) {
+//     this.product_name = name;
+//     this.product_description = description;
+//     this.describe()
+//   }
  
-  describe() {
-    $("#product-" + id).html(data.product_description)
-  }
-}
+//   describe() {
+//        $("#created-name").text(name);
+//        $("#created-description").text(description);
+//   }
+// }
