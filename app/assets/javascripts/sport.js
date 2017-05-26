@@ -20,6 +20,11 @@ function attachListeners() {
         getNext(id)
         e.preventDefault()
     });
+
+    // $("form").on("click", function(e) {
+    //     console.log(e)
+    //     e.preventDefault()
+    // });
 }
 
 function getSport(sportId) {
@@ -36,7 +41,7 @@ function getSport(sportId) {
 function productInfo(data) {
   var productsArray = " "
   $(data).each(function (index, value) {
-    productsArray += `<br><strong> ${index + 1}. </strong>` + value.product_name + " - " + value.product_description + `<br>`
+    productsArray += `<br> ${index + 1}. ` + value.product_name + " - " + value.product_description + `<br>`
   $("#product").html(productsArray)
   })
 }
@@ -77,7 +82,7 @@ function getNext(id) {
 function getProducts(data) {
   var productArray = " "
   $(data).each(function(index, product) {
-    productArray += `<br><strong> ${index + 1}. </strong>` + product.product_name + " - " + product.product_description + `<br>`
+    productArray += `<br>${index + 1}. ` + product.product_name + " - " + product.product_description + `<br>`
     $(".productName").html(productArray);
   });
 }
