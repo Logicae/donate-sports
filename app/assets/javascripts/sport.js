@@ -76,7 +76,6 @@ function getNext(id) {
             dataType: "json",
             success: function(data) {
                 $(".sportName").text(data.name);
-                // getProducts(data.id);
                 $(".js-next").attr("id", data.id);
           }
     });
