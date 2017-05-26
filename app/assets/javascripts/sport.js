@@ -21,7 +21,7 @@ function attachListeners() {
         e.preventDefault()
     });
 
-    $('form').submit(function(e) {
+    $(document).on("click", ".product-form", function(e) {
         e.preventDefault();
  
         var values = $(this).serialize();
@@ -31,11 +31,11 @@ function attachListeners() {
         posting.done(function(data) {
           var user = new Post
           user.describeProduct(data["product_name"], data["product_description"])
-          // $("#created-name").text(post["product_name"]);
-          // $("#created-description").text(post["product_description"]);
       });
     });
 }
+
+// listener calls
 
 function getSport(sportId) {
   $.ajax({
@@ -95,6 +95,10 @@ function getProducts(data) {
     $(".productName").html(productArray);
   });
 }
+
+
+// model objects
+
 
 class Post {
   constructor(name, description) {

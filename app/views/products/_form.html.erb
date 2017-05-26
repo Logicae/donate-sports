@@ -1,7 +1,7 @@
 <br>
 <ul><strong>Sport</label></strong></ul>
 <ul><%= @product.sport.name %></ul>
-<%= form_for(@product) do |f| %>
+<%= form_for(@product, :html => {:class => "product-form"}) do |f| %>
     <ul><strong>Item</strong></ul>
     <ul><%= f.text_field :product_name %></ul>
     <ul/><strong>Item Description</strong></ul>
