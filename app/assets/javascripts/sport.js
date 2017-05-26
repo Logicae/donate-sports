@@ -29,12 +29,10 @@ function attachListeners() {
         var posting = $.post('/products', values);
  
         posting.done(function(data) {
-          var post = data;
-          // var name = post["product_name"]
-          // var description = post["product_name"]
-          // new Post(name, description)
-          $("#created-name").text(post["product_name"]);
-          $("#created-description").text(post["product_description"]);
+          var user = new Post
+          user.describeProduct(data["product_name"], data["product_description"])
+          // $("#created-name").text(post["product_name"]);
+          // $("#created-description").text(post["product_description"]);
       });
     });
 }
@@ -98,15 +96,13 @@ function getProducts(data) {
   });
 }
 
-// class Post {
-//   constructor(name, description) {
-//     this.product_name = name;
-//     this.product_description = description;
-//     this.describe()
-//   }
- 
-//   describe() {
-//        $("#created-name").text(name);
-//        $("#created-description").text(description);
-//   }
-// }
+class Post {
+  constructor(name, description) {
+    this.product_name = name;
+    this.product_description = description;
+  }
+  describeProduct(name, description) {
+      $("#created-name").text(name);
+      $("#created-description").text(description);
+  }
+}
