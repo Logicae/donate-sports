@@ -30,8 +30,11 @@ function attachListeners() {
  
         posting.done(function(data) {
           var post = data;
-          $("#created-name").text(post["product_name"]);
-          $("#created-description").text(post["product_description"]);
+          var name = post["product_name"]
+          var description = post["product_name"]
+          new Post(name, description)
+          // $("#created-name").text(post["product_name"]);
+          // $("#created-description").text(post["product_description"]);
       });
     });
 }
@@ -96,13 +99,13 @@ function getProducts(data) {
   });
 }
 
-class User {
-  constructor(name, email) {
-    this.name = name;
-    this.email = email;
+class Product {
+  constructor(description) {
+    this.product_description = description;
+    this.describe()
   }
  
-  sayHello() {
-    console.log("Hello! Your Donate Sports name is  " + this.name + " and your email is " + this.email);
+  describe() {
+    $("#product-" + id).html(data.product_description)
   }
 }
