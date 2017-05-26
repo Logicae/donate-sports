@@ -21,10 +21,19 @@ function attachListeners() {
         e.preventDefault()
     });
 
-    // $("form").on("click", function(e) {
-    //     console.log(e)
-    //     e.preventDefault()
-    // });
+    $('form').submit(function(e) {
+        e.preventDefault();
+ 
+        var values = $(this).serialize();
+ 
+        var posting = $.post('/products', values);
+ 
+        posting.done(function(data) {
+          var post = data;
+          $("#created-name").text(post["product_name"]);
+          $("#created-description").text(post["product_description"]);
+      });
+    });
 }
 
 function getSport(sportId) {
