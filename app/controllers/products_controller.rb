@@ -18,13 +18,15 @@ class ProductsController < ApplicationController
   end
 
   def create 
-     @product = Product.new(products_params)
-     @product.user_id = current_user.id
-        if @product.save
-            redirect_to user_path(current_user)
-        else
-            render :new
-        end
+    @product = Product.create(products_params)
+    render json: @product
+    #  @product = Product.new(products_params)
+    #  @product.user_id = current_user.id
+    #     if @product.save
+    #         redirect_to user_path(current_user)
+    #     else
+    #         render :new
+    #     end
   end 
 
 def show 

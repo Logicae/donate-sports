@@ -10,5 +10,26 @@
     <ul><%= f.submit %></ul>
 <% end %>
 
-<button class="new-product">New Product</button>
-<h1 class="render-product"></h1>
+<h2 id="created-name"></h2>
+<h2 id="created-description"></h2>
+
+<script type="text/javascript" charset="utf-8">
+
+$(function () {
+    $('form').submit(function(event) {
+    
+      event.preventDefault();
+ 
+      var values = $(this).serialize();
+ 
+      var posting = $.post('/products', values);
+ 
+      posting.done(function(data) {
+        var post = data;
+        $("#created-name").text(post["product_name"]);
+        $("#created-description").text(post["product_description"]);
+      });
+    });
+  });
+
+</script>
