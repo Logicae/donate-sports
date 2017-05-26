@@ -95,3 +95,14 @@ function getProducts(data) {
     $(".productName").html(productArray);
   });
 }
+
+class User {
+  constructor(name, email) {
+    this.name = name;
+    this.email = email;
+  }
+ 
+  sayHello() {
+    console.log("Hello! Your Donate Sports name is  " + this.name + " and your email is " + this.email);
+  }
+}
