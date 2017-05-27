@@ -16,12 +16,13 @@ class ProductsController < ApplicationController
 
   def create 
     @product = Product.create(products_params)
-    @product.user_id = current_user.id
-    @product.save
-    respond_to do |format|
-        format.html { render :show}
-        format.json { render json: @product }
-    end
+    render json: @product 
+    # @product.user_id = current_user.id
+    # @product.save
+    # respond_to do |format|
+    #     format.html { render :show}
+    #     format.json { render json: @product }
+    # end
   end 
 
 def show 
