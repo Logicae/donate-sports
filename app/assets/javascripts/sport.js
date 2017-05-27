@@ -21,51 +21,19 @@ function attachListeners() {
         e.preventDefault()
     });
 
-    $(document).on("click", ".product-form", function(e) {
+    $(document).on("submit", ".product-form", function(e) {
         e.preventDefault();
- 
         var values = $(this).serialize();
- 
         var posting = $.post('/products', values);
- 
         posting.done(function(data) {
-          var user = new Post
-          user.describeProduct(data["product_name"], data["product_description"])
+          let newPost = new Post(data)
+          let string = newPost.describeProduct()
+          $("#created-name").html(string)
       });
     });
 }
 
-// listener calls
-
-function getSport(sportId) {
-  $.ajax({
-    type: "GET",
-    url: "/sports/" + sportId +"/products",
-    dataType: "json",
-    success: function(data){
-        productInfo(data)
-    }        
-  });
-}
-
-function productInfo(data) {
-  var productsArray = " "
-  $(data).each(function (index, value) {
-    productsArray += `<br> ${index + 1}. ` + value.product_name + " - " + value.product_description + `<br>`
-  $("#product").html(productsArray)
-  })
-}
-
-function getDetails(id) {
-    $.ajax({
-      type: "GET",
-      url: "/products/" + id,
-      dataType: "json",
-      success: function(data) {
-        $("#product-" + id).html(data.product_description)
-    }        
-  })
-}
+// get calls
 
 function getNext(id) {
         $.ajax({
@@ -88,6 +56,27 @@ function getNext(id) {
     });
 }
 
+function getSport(sportId) {
+  $.ajax({
+    type: "GET",
+    url: "/sports/" + sportId +"/products",
+    dataType: "json",
+    success: function(data){
+        productInfo(data)
+    }        
+  });
+}
+
+// additional functions
+
+function productInfo(data) {
+  var productsArray = " "
+  $(data).each(function (index, value) {
+    productsArray += `<br> ${index + 1}. ` + value.product_name + " - " + value.product_description + `<br>`
+  $("#product").html(productsArray)
+  })
+}
+
 function getProducts(data) {
   var productArray = " "
   $(data).each(function(index, product) {
@@ -96,17 +85,39 @@ function getProducts(data) {
   });
 }
 
+function getDetails(id) {
+    $.ajax({
+      type: "GET",
+      url: "/products/" + id,
+      dataType: "json",
+      success: function(data) {
+        $("#product-" + id).html(data.product_description)
+    }        
+  })
+}
 
 // model objects
 
-
-class Post {
-  constructor(name, description) {
-    this.product_name = name;
-    this.product_description = description;
-  }
-  describeProduct(name, description) {
-      $("#created-name").text(name);
-      $("#created-description").text(description);
-  }
+function Post(data) {
+  this.product_name = data.product_name
+  this.product_description = data.product_description
 }
+
+Post.prototype.describeProduct = function() {
+  let postString = `The item name is: ${this.product_name}. <br> Its description is: ${this.product_description}.`
+  return postString
+}
+
+
+
+
+//  describeProduct(name, description) {
+//       $("#created-name").text(name)
+//       $("#created-description").text(description)
+//   }
+
+//data["product_name"], data["product_description"]
+  // constructor(name, description) {
+  //   this.product_name = name;
+  //   this.product_description = description;
+  // }
