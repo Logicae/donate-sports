@@ -22,14 +22,14 @@ function attachListeners() {
     });
 
     $("form.product-form").on("submit", function(e) {
-        e.preventDefault()
-        var values = $(this).serialize();
-        var posting = $.post('/products', values);
+        var values = $(this).serialize()
+        var posting = $.post('/products', values)
         posting.done(function(data) {
           let newPost = new Post(data)
           let string = newPost.describeProduct()
           $("#created-name").html(string)
       });
+      e.preventDefault()
     });
 }
 
@@ -99,8 +99,8 @@ function getDetails(id) {
 // model objects
 
 function Post(data) {
-  this.product_name = data.product_name
-  this.product_description = data.product_description
+  this.product_name = data["product_name"]
+  this.product_description = data["product_description"]
 }
 
 Post.prototype.describeProduct = function() {
