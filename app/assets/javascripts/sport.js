@@ -21,15 +21,15 @@ function attachListeners() {
         e.preventDefault()
     });
 
-    $("form.product-form").on("submit", function(e) {
+    $("#new_product").on("submit", function(e) {
+        e.preventDefault()
         var values = $(this).serialize()
         var posting = $.post('/products', values)
         posting.done(function(data) {
           let newPost = new Post(data)
           let string = newPost.describeProduct()
-          $("#created-name").html(string)
-      });
-      e.preventDefault()
+          $("#created-name").text(string)
+        });
     });
 }
 
@@ -45,7 +45,6 @@ function getNext(id) {
                 $(".js-next").attr("id", data.id);
           }
     });
-
        $.ajax({
             type: "GET",
             url: "/sports/" + id + "/products",
@@ -109,4 +108,20 @@ Post.prototype.describeProduct = function() {
 }
 
 
+       // $.ajax({
+        //   type: "POST",
+        //   url: "/products",
+        //   dataType: "json",
+        //   success: function(data) {
+        //     debugger
+        //         let newPost = new Post(data)
+        //         let string = newPost.describeProduct()
+        //         $("#created-name").html(string)
+        //   }
+        // });
+
  
+
+
+
+      
