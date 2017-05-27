@@ -21,8 +21,8 @@ function attachListeners() {
         e.preventDefault()
     });
 
-    $(document).on("submit", ".product-form", function(e) {
-        e.preventDefault();
+    $("form.product-form").on("submit", function(e) {
+        e.preventDefault()
         var values = $(this).serialize();
         var posting = $.post('/products', values);
         posting.done(function(data) {
@@ -109,15 +109,4 @@ Post.prototype.describeProduct = function() {
 }
 
 
-
-
-//  describeProduct(name, description) {
-//       $("#created-name").text(name)
-//       $("#created-description").text(description)
-//   }
-
-//data["product_name"], data["product_description"]
-  // constructor(name, description) {
-  //   this.product_name = name;
-  //   this.product_description = description;
-  // }
+ 
