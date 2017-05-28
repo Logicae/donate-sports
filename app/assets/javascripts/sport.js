@@ -6,7 +6,7 @@ function attachListeners() {
   $("#products").on('click', function(e) {
     var path = window.location.pathname.split( '/' );
     var sportId = path[2];
-    getSport(sportId);
+    getNext(sportId);
     e.preventDefault()
   })
 
@@ -34,11 +34,11 @@ function attachListeners() {
 }
 
 
-
 // ajax 
 
+
 function getNext(id) {
-        $.ajax({
+      $.ajax({
          type: "GET",
             url: "/sports/" + id,
             dataType: "json",
@@ -47,48 +47,15 @@ function getNext(id) {
                 $(".js-next").attr("id", data.id);
           }
     });
-       $.ajax({
-            type: "GET",
-            url: "/sports/" + id + "/products",
-            dataType: "json",
-            success: function(data) {
-              getProducts(data);
-        }
+
+      $.ajax({
+      type: "GET",
+      url: "/sports/" + id +"/products",
+      dataType: "json",
+      success: function(data){
+          getProducts(data)
+      }        
     });
-}
-
-function getSport(sportId) {
-  $.ajax({
-    type: "GET",
-    url: "/sports/" + sportId +"/products",
-    dataType: "json",
-    success: function(data){
-        productInfo(data)
-    }        
-  });
-}
-
-
-
-// additional functions
-
-function productInfo(data) {
-  var productsArray = " "
-  $(data).each(function (index, value) {
-    productsArray += `<br> ${index + 1}. ` + value.product_name + " - " + value.product_description + `<br>`
-  $("#product").html(productsArray)
-  })
-}
-
-function getProducts(data) {
-  // var productArray = " "
-  $(data).each(function(index, value) {
-    
-      let nextProduct = new Product(index, value)
-      let string = nextProduct.describeProduct()
-    // productArray += `<br>${index + 1}. ` + product.product_name + " - " + product.product_description + `<br>`
-    $(".productName").append(string);
-  });
 }
 
 function getDetails(id) {
@@ -102,7 +69,18 @@ function getDetails(id) {
   })
 }
 
+function getProducts(data) {
+  var postString = " "
+  $(data).each(function(index, value) {
+      let nextProduct = new Product(index, value)
+      postString += `<br>Product Name: ${nextProduct.product_name} <br> Product Description: ${nextProduct.product_description}<br>`
+      $("#product").html(postString)
+  });
+}
+
+
 // constructor functions
+
 
 function Post(data) {
   this.product_name = data["product_name"]
@@ -120,7 +98,24 @@ function Product(index, value) {
 }
 
 Product.prototype.describeProduct = function() {
-  let postString = `<br>Product Name: ${this.product_name} <br> Product Description: ${this.product_description}<br>`
-  return postString
+
 }
 
+
+
+//    $.ajax({
+//         type: "GET",
+//         url: "/sports/" + id + "/products",
+//         dataType: "json",
+//         success: function(data) {
+//           getProducts(data)
+//     }
+// });
+
+// function productInfo(data) {
+//   var productsArray = " "
+//   $(data).each(function (index, value) {
+//     productsArray += `<br> ${index + 1}. ` + value.product_name + " - " + value.product_description + `<br>`
+//   $("#product").html(productsArray)
+//   })
+// }
