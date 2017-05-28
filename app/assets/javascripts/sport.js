@@ -4,21 +4,16 @@ $(document).on('turbolinks:load', function() {
 
 function attachListeners() {
   $("#products").on('click', function(e) {
-    var path = window.location.pathname.split( '/' );
-    var sportId = path[2];
-    getNext(sportId);
-    e.preventDefault()
+      var path = window.location.pathname.split( '/' );
+      var id = path[2];
+      getNext(id);
+      e.preventDefault()
   })
 
-  $(".js-more").on("click", function(e) {
-      getDetails(e.target.id)
-      e.preventDefault()
-    })
-
     $(".js-next").on("click", function(e) {
-        var id = parseInt(e.target.id, 10) + 1
-        getNext(id)
-        e.preventDefault()
+          var id = parseInt(e.target.id, 10) + 1
+          getNext(id)
+          e.preventDefault()
     });
 
     $("#new_product").on("submit", function(e) {
@@ -26,9 +21,9 @@ function attachListeners() {
         var values = $(this).serialize()
         var posting = $.post('/products', values)
         posting.done(function(data) {
-          let newPost = new Post(data)
-          let string = newPost.describeProduct()
-          $("#created-name").html(string)
+            let newPost = new Post(data)
+            let string = newPost.describeProduct()
+            $("#created-name").html(string)
         });
     });
 }
@@ -47,7 +42,6 @@ function getNext(id) {
                 $(".js-next").attr("id", data.id);
           }
     });
-
       $.ajax({
       type: "GET",
       url: "/sports/" + id +"/products",
@@ -56,17 +50,6 @@ function getNext(id) {
           getProducts(data)
       }        
     });
-}
-
-function getDetails(id) {
-    $.ajax({
-      type: "GET",
-      url: "/products/" + id,
-      dataType: "json",
-      success: function(data) {
-        $("#product-" + id).html(data.product_description)
-    }        
-  })
 }
 
 function getProducts(data) {
@@ -83,39 +66,38 @@ function getProducts(data) {
 
 
 function Post(data) {
-  this.product_name = data["product_name"]
-  this.product_description = data["product_description"]
+    this.product_name = data["product_name"]
+    this.product_description = data["product_description"]
 }
 
 Post.prototype.describeProduct = function() {
-  let postString = `Product Name: ${this.product_name} <br> Product Description: ${this.product_description}`
-  return postString
+    let postString = `Product Name: ${this.product_name} <br> Product Description: ${this.product_description}`
+    return postString
 }
 
 function Product(index, value) {
-  this.product_name = value["product_name"]
-  this.product_description = value["product_description"]
-}
-
-Product.prototype.describeProduct = function() {
-
+    this.product_name = value["product_name"]
+    this.product_description = value["product_description"]
 }
 
 
 
-//    $.ajax({
-//         type: "GET",
-//         url: "/sports/" + id + "/products",
-//         dataType: "json",
-//         success: function(data) {
-//           getProducts(data)
-//     }
-// });
+  // $(".js-more").on("click", function(e) {
+  //       getDetails(e.target.id)
+  //       e.preventDefault()
+  //   })
 
-// function productInfo(data) {
-//   var productsArray = " "
-//   $(data).each(function (index, value) {
-//     productsArray += `<br> ${index + 1}. ` + value.product_name + " - " + value.product_description + `<br>`
-//   $("#product").html(productsArray)
+  // function getDetails(id) {
+//     $.ajax({
+//       type: "GET",
+//       url: "/products/" + id,
+//       dataType: "json",
+//       success: function(data) {
+//           $("#product-" + id).html(data.product_description)
+//     }        
 //   })
 // }
+
+// belongs in _item_list partial
+//<ul><div id="product-<%= product.id %>"><%= truncate(product.product_description, length: 0) %></div></ul>
+//<ul><button class="js-more" id="<%= product.id %>">More Info</button></ul> 
