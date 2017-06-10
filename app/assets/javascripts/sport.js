@@ -26,6 +26,11 @@ function attachListeners() {
             $("#created-name").html(string)
         });
     });
+
+    $(".sport-form").on("click", function(e) {
+        e.preventDefault();
+        show()
+    })
 }
 
 
@@ -62,6 +67,24 @@ function getProducts(data) {
 }
 
 
+// show 
+
+function show() {
+    var styleProps = $(".show-form").css(["display"]);
+    if (styleProps["display"] == "none") {
+        styleProps["display"] = 'inline'
+        $(".show-form").css(styleProps);
+        $(".sport-form").text("Hide Form")
+    } else {
+        styleProps["display"] = 'none'
+        $(".show-form").css(styleProps);
+        $(".sport-form").text("Show Form")
+    }
+}
+
+// Make a PR on github(dont merge into master!!! important!!) and @ @lukeghenco
+
+
 // constructor functions
 
 
@@ -79,25 +102,3 @@ function Product(index, value) {
     this.product_name = value["product_name"]
     this.product_description = value["product_description"]
 }
-
-
-
-  // $(".js-more").on("click", function(e) {
-  //       getDetails(e.target.id)
-  //       e.preventDefault()
-  //   })
-
-  // function getDetails(id) {
-//     $.ajax({
-//       type: "GET",
-//       url: "/products/" + id,
-//       dataType: "json",
-//       success: function(data) {
-//           $("#product-" + id).html(data.product_description)
-//     }        
-//   })
-// }
-
-// belongs in _item_list partial
-//<ul><div id="product-<%= product.id %>"><%= truncate(product.product_description, length: 0) %></div></ul>
-//<ul><button class="js-more" id="<%= product.id %>">More Info</button></ul> 
