@@ -17,6 +17,8 @@
 !/log/.keep
 !/tmp/.keep
 
+code.js
+
 # Ignore Byebug command history file.
 .byebug_history
 
