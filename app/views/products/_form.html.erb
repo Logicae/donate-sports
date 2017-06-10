@@ -1,7 +1,7 @@
 <br>
 <ul><strong>Sport</label></strong></ul>
 <ul><%= @product.sport.name %></ul>
-<%= form_for(@product) do |f| %>
+<%= form_for(@product, :html => {:class => "product-form"}) do |f| %>
     <ul><strong>Item</strong></ul>
     <ul><%= f.text_field :product_name %></ul>
     <ul/><strong>Item Description</strong></ul>
@@ -9,3 +9,7 @@
     <%= f.hidden_field :sport_id %>
     <ul><%= f.submit %></ul>
 <% end %>
+
+<h2 id="created-name"></h2>
+<h2 id="created-description"></h2>
+

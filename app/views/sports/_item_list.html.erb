@@ -1,15 +1,41 @@
 <% @sports.each do |sport|%>
+
     <ul><h2><%= link_to sport.name, sport_path(sport) %></h2></ul>
     <fieldset>
+
+        <%= form_for sport do |f| %></ul>
+            <button class="sport-form">Show Form</button>  
+            <div class="show-form" style="display: none;"> 
+            <ul>
+                <strong><%= f.label :sport %></strong>
+            </ul>
+
+            <ul>		
+                <%= f.text_field :name %>
+            </ul>
+
+            <%= f.fields_for :products, sport.products.build do |products_fields| %>
+                <ul><strong><%= f.label :item_name %></strong></ul>
+                <ul><%= products_fields.text_field :product_name %></ul>
+                <ul><strong><%= f.label :item_description %></strong></ul>
+                <ul><%= products_fields.text_area :product_description %></ul>
+                <input type="hidden" name="sport[products_attributes][0][user_id]" value="<%= current_user.id %>">
+            <% end %>
+            <ul><%= f.submit "Submit" %></ul>
+             </div>
+        <% end %>
+
         <% sport.products.each do |product| %>
-            <ul><strong>Item</strong></ul>
-            <ul><%= product.product_name %></ul>
-            <ul><strong>Item Description</strong></ul>
-            <ul><%= product.product_description %></ul>
-            <ul><strong>Contact Info</strong></ul>
-            <ul><%= product.user.name %></ul>
-            <ul><%= product.user.email %></ul>
-            - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+            <% if product.id %>
+                <ul><strong>Item</strong></ul>
+                <ul><%= product.product_name %></ul>
+                <ul><strong>Item Description</strong></ul>
+                <ul><%= product.product_description %></ul>
+                <ul><strong>Contact Info</strong></ul>
+                <ul><%= product.user.name %></ul>
+                <ul><%= product.user.email %></ul>
+                - - - - 
+            <% end %>
         <% end %>
     </fieldset>
 <% end %>

@@ -7,6 +7,10 @@ class SportsController < ApplicationController
         else 
             @sports = Sport.all
         end 
+        #   respond_to do |format|
+        #     format.html { render :show }
+        #     format.json { render json: @sports }
+        # end
     end 
     
     def new
@@ -15,6 +19,10 @@ class SportsController < ApplicationController
     
     def show 
         @sport = Sport.find_by(id: params[:id])
+        respond_to do |format|
+            format.html { render :show }
+            format.json { render json: @sport }
+        end
     end 
 
     def create
@@ -27,6 +35,19 @@ class SportsController < ApplicationController
             redirect_to user_path(current_user)
         else
             render :new
+        end
+    end 
+
+    def update
+        @sport = Sport.find_or_create_by(name: sports_params[:name])
+        @product = Product.new(product_name: sports_params[:products_attributes]["0"][:product_name], product_description: sports_params[:products_attributes]["0"][:product_description])
+        @user = User.find_by(id: sports_params[:products_attributes]["0"][:user_id])
+        @product.user_id = @user.id
+        @sport.products << @product
+        @sport.save
+        respond_to do |format|
+            format.html { render :show}
+            format.json { render json: @sport }
         end
     end 
     

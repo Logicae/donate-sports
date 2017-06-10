@@ -3,9 +3,11 @@ class ProductsController < ApplicationController
  def index
     if params[:sport_id]
       @sports = Sport.find(params[:sport_id]).products
-    else
-      @sports = Sport.all
     end
+      respond_to do |format|
+          format.html { render :index}
+          format.json { render json: @sports }
+      end
   end
  
   def new
@@ -13,14 +15,19 @@ class ProductsController < ApplicationController
   end
 
   def create 
-     @product = Product.new(products_params)
-     @product.user_id = current_user.id
-        if @product.save
-            redirect_to user_path(current_user)
-        else
-            render :new
-        end
+    @product = Product.create(products_params)
+    @product.user_id = current_user.id
+    @product.save
+    render json: @product
   end 
+
+def show 
+    @product = Product.find_by(id: params[:id])
+    respond_to do |format|
+        format.html { render :show }
+        format.json { render json: @product }
+    end
+end 
 
    private
  
